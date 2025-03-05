@@ -1,0 +1,36 @@
+---
+title: "Multidisciplinary"
+author: "phonluang"
+date: "2025-03-05"
+output: github_document
+---
+
+```{r}
+library(dplyr)
+
+#เปิดไฟล์ iris
+head(iris)
+
+#กรองเฉพาะ setosa
+filter(iris, Species == "setosa")
+
+#ตั้งชื่อข้อมูลที่กรองแล้วว่า setosa
+setosa <- filter(iris, Species == "setosa") 
+
+#สรุปข้อมูลของ setosa
+summary(setosa)
+
+#ได้ค่า mean ของ petal length=1.462
+#กรองข้อมูล petal length ที่มีค่ามากกว่า 1.462
+filter(setosa, Petal.Length > 1.462) 
+
+#ตั้งชื่อไฟล์ที่กรองแล้วว่า nongcho_so_cute
+nongcho_so_cute <- filter(setosa, Petal.Length > 1.462) 
+
+#สร้าง histogram ของ setosa ที่มี petal length มากกว่าค่า mean
+hist(nongcho_so_cute$Petal.Length)
+
+#สร้าง boxplot ค่า petal lenght และ sepal length
+boxplot(nongcho_so_cute[,c("Sepal.Length", "Petal.Length")])
+```
+
